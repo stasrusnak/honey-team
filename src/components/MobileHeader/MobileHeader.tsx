@@ -1,34 +1,54 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Icons from "../Icons/Icons";
-import Logo, {Color} from "../Logo/Logo";
+import Logo, { Color } from "../Logo/Logo";
 
 import styles from "./MobileHeader.module.css";
-
 import Route from "../../utils/links";
 
 const MobileHeader: FunctionComponent = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
         <header className={styles["header-color"]}>
             <div className={styles["header"]}>
-                <p>MobileHeader</p>
-                <div className={styles["left-part"]}>
+                <div className={styles["header__title"]}>
                     <Link to="/"><Logo color={Color.white} classNames={[styles["header__nav__element"]]}/></Link>
-                    <ul className={styles["header__nav"]}>
-                        <li className={styles["header__nav__element"]}><Link to="/projects">Проекты</Link></li>
-                        <li className={styles["header__nav__element"]}><Link to="/members">Участники</Link></li>
-                        <li className={styles["header__nav__element"]}><Link to="/blog">Блог</Link></li>
-                    </ul>
+                    <div className={styles["menu-toggle"]} onClick={toggleMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <div className={styles["right-part"]}>
-                    <a href={Route("/", 'discord')}> <Icons name="ds" className={styles["header__nav__element"]}/> </a>
-                    <a href={Route("/", 'tg')}> <Icons name="tg" className={styles["header__nav__element"]}/> </a>
-                    <a href={Route("/", 'gh')}> <Icons name="gh" className={styles["header__nav__element"]}/> </a>
-                </div>
+
+
+                <ul className={`${styles["header__nav"]} ${menuOpen ? styles["open"] : ""}`}>
+                    <li className={styles["header__nav__element"]}>
+                        <Link to="/projects" onClick={toggleMenu}>Проекты</Link>
+                    </li>
+                    <li className={styles["header__nav__element"]}>
+                        <Link to="/members" onClick={toggleMenu}>Участники</Link>
+                    </li>
+                    <li className={styles["header__nav__element"]}>
+                        <Link to="/blog" onClick={toggleMenu}>Блог</Link>
+                    </li>
+                    <li className={styles["header__nav__element"]}>
+                        <div className={styles["right-part"]}>
+                            <a href={Route("/", 'discord')} onClick={toggleMenu}> <Icons name="ds"/></a>
+                            <a href={Route("/", 'tg')} onClick={toggleMenu}> <Icons name="tg"/></a>
+                            <a href={Route("/", 'gh')} onClick={toggleMenu}> <Icons name="gh"/></a>
+                        </div>
+                    </li>
+                </ul>
+
             </div>
         </header>
-    );
+    )
 }
 
 export default MobileHeader;
