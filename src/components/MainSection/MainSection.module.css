@@ -48,8 +48,18 @@
 
 @media  (max-width: 768px) {
   .buttons{
+    display: flex;
+    flex-direction: column;
     padding: 20px 0;
   }
+  .text {
+    text-align: center;
+  }
+
+  .buttons p{
+    font-size: 3vw;
+  }
+
   .logo{
     margin: 20px 0;
   }
