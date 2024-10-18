@@ -10,19 +10,24 @@ import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-const router = createBrowserRouter([{
-    path: '/',
-    element: <Layout/>,
-    children: [
-        { path: "/", element: <MainPage/> },
-        { path: "/members", element: <MembersPage/> },
-        { path: "/members/:name", element: <MemberPage/> },
-        { path: "/projects", element: <ProjectsPage/> },
-        { path: "/projects/:name", element: <ProjectPage/> },
-        { path: "/blog", element: <BlogPage/> },
-        { path: "*", element: <ErrorPage/> }
-    ]
-}]);
+const router = createBrowserRouter(
+    [{
+        path: '/',
+        element: <Layout />,
+        children: [
+            { path: "/", element: <MainPage /> },
+            { path: "/members", element: <MembersPage /> },
+            { path: "/members/:name", element: <MemberPage /> },
+            { path: "/projects", element: <ProjectsPage /> },
+            { path: "/projects/:name", element: <ProjectPage /> },
+            { path: "/blog", element: <BlogPage /> },
+            { path: "*", element: <ErrorPage /> }
+        ]
+    }],
+    {
+        basename: "/honey-team/"
+    }
+);
 
 export default function App() {
     return <RouterProvider router={router}/>;

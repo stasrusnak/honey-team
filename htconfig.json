@@ -1,6 +1,6 @@
 {
     "favicon": {
-        "index": "/icons/favicon.ico",
+        "index": "icons/favicon.ico",
         "members": null,
         "projects": null
     },
@@ -17,7 +17,7 @@
         "error": "Ошибка 404 ⚠"
     },
     "og": {
-        "index": "/socials/opengraph.png",
+        "index": "socials/opengraph.png",
         "members": null,
         "projects": null
     },
@@ -68,7 +68,7 @@
     "projects": [
         {
             "gh": "ufpy",
-            "image": "/images/projects/ufpy.png",
+            "image": "images/projects/ufpy.png",
             "description": "Библиотека на Python с множеством полезных функций",
             "socials": {
                 "tg": "HoneyTeamC_bot",
