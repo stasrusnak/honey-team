@@ -12,7 +12,7 @@ const MainSection: FunctionComponent = () => {
 			<div className="wrapper">
 				<div className={styles["main-section__wrapper"]}>
 					<div className={styles["logo"]}>
-						<img src="images/logo_big.png"/>
+						<img src="/images/logo_big.png"/>
 					</div>
 					<h1 className={styles["header"]}>HoneyTeam</h1>
 					<p className={styles["text"]}>

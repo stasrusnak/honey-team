@@ -2,19 +2,72 @@
 	width: 100%;
 	background: var(--main-gradient);
 	padding: 7px 0;
+	position: absolute;
+	min-height: 50px;
+	z-index: 1;
+}
+.header-color-open {
+	min-height: 280px;
 }
 
+
+.header-placeholder {
+	height: 60px;
+	display: flex;
+	justify-content: center;
+}
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 30px;
+	padding: 0 15px;
+	width: 100%;
 }
+
+.header__title{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.header__nav {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	list-style: none;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	top: 50px;
+	right: 0;
+	width: 100%;
+	transform: translateY(0);
+	z-index: 2;
+}
+
+.header__nav.open {
+	display: flex;
+	padding: 15px;
+	opacity: 1;
+	transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.header__nav__element {
+	list-style: none;
+	margin: 0;
+	transition: 0.5s ease;
+}
+
+
+
 
 .left-part {
 	display: flex;
 	gap: 30px;
-
 }
 
 .right-part {
@@ -31,48 +84,13 @@
 	fill: #ffffff;
 }
 
-.header__nav {
-	display: flex;
-	gap: 2rem;
-	font-size: 1.5rem;
-	font-weight: 600;
-	transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-
-.header__nav {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	font-size: 1.5rem;
-	font-weight: 600;
-	list-style: none;
-	max-height: 0;
-	overflow: hidden;
-	opacity: 0;
-	transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-.header__nav.open {
-	max-height: 300px; /* Задайте необходимую высоту */
-	opacity: 1;
-}
-
-
-.header__nav__element {
-	list-style: none;
-	margin: 0;
-	transition: 0.5s ease;
-}
-
-
-/**/
+/* гамбургер*/
 .menu-toggle {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
-	height: 40px;
+	width: 36px;
+	height: 36px;
 	border: 2px solid white;
 	border-radius: 5px;
 	cursor: pointer;
@@ -118,34 +136,6 @@
 	}
 }
 
-
-@media (max-width: 768px) {
-	.header__nav {
-		display: none;
-	}
-	.header{
-		flex-direction: column;
-		display: flex;
-
-	}
-	.header__title{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-	}
-
-	.header__nav.open {
-		display: flex;
-		flex-direction: column;
-		top: 60px;
-		right: 0;
-		width: 100%;
-		padding: 15px;
-	}
-
-}
 
 /* Для планшетов (более 768px) */
 @media (min-width: 768px) and (max-width: 1024px) {

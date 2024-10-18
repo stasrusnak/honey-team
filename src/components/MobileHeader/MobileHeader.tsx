@@ -1,8 +1,8 @@
-import { FunctionComponent, useState } from "react";
-import { Link } from "react-router-dom";
+import {FunctionComponent, useState} from "react";
+import {Link} from "react-router-dom";
 
 import Icons from "../Icons/Icons";
-import Logo, { Color } from "../Logo/Logo";
+import Logo, {Color} from "../Logo/Logo";
 
 import styles from "./MobileHeader.module.css";
 import Route from "../../utils/links";
@@ -12,12 +12,13 @@ const MobileHeader: FunctionComponent = () => {
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
+        console.log(menuOpen)
     };
 
-    return (
+    return (<div className={styles["header-placeholder"]}>
         <header className={styles["header-color"]}>
             <div className={styles["header"]}>
-                <div className={styles["header__title"]}>
+                <div className={`${styles["header__title"]} ${menuOpen ? styles["header-color-open"] : ""}`}>
                     <Link to="/"><Logo color={Color.white} classNames={[styles["header__nav__element"]]}/></Link>
                     <div className={styles["menu-toggle"]} onClick={toggleMenu}>
                         <span></span>
@@ -26,8 +27,9 @@ const MobileHeader: FunctionComponent = () => {
                     </div>
                 </div>
 
-
-                <ul className={`${styles["header__nav"]} ${menuOpen ? styles["open"] : ""}`}>
+            </div>
+            <div>
+                <ul className={`${styles["header__nav"]} ${menuOpen ? `${styles["open"]} ${styles["header-color-open"]}` : ""}`}>
                     <li className={styles["header__nav__element"]}>
                         <Link to="/projects" onClick={toggleMenu}>Проекты</Link>
                     </li>
@@ -45,10 +47,9 @@ const MobileHeader: FunctionComponent = () => {
                         </div>
                     </li>
                 </ul>
-
             </div>
         </header>
-    )
+    </div>)
 }
 
 export default MobileHeader;
